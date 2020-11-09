@@ -20,27 +20,9 @@ class myView(View):
                 m += '<li><h3 class="complete-{}"">{}  <a href="?done&id={}">Done</a>  <a href="?delete&id={}">Delete</a></h3>'.format(temp.completed, str(temp),x,x)
                 m += '<form action="" method="get"><input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description"><button class="taskAdd" name="taskAdd" type="submit"  id="{}" value="{}">Add task</button></form>'.format(x,x)
                 m += "</li>"
-        return m
-
-    # def get_initial(self):
-    #     todos = TodoList.objects.all()
-
-    #     newDict = defaultdict(lambda:[])
-    #     childDict = {}
-    #     for todo in todos:
-    #         newDict[todo.parent].append(todo.id)
-
-    #     s='<ul class = "taskList">' 
-    #     s += findChildren(newDict[-1], newDict, s)
-    #     s +="\n</ul>"
-
-    #     print("newDict : ", newDict)
-
-    #     return render(self.request, "index.html", {"newDict": newDict, "s": s})   
+        return m 
 
     def get(self, request):
-        
-
         print("Get request : ", request)
         if "clearAll" in request.GET:
             TodoList.objects.all().delete()
